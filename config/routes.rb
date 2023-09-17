@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   scope module: :public do
     root to: 'homes#top'
     get 'about' => 'homes#about'
-    get 'customers' => 'customers#show'
-    get 'customers/edit' => 'customers#edit'
-    patch 'customers' => 'customers#update'
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/information' => 'customers#update'
     get 'customers/confirm' => 'customers#confirm'
     patch 'customers/withdrawal' => 'customers#withdrawal'
     resources :items, only: [:index, :show]
@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       end
     end
     resources :orders, only: [:new, :create, :index, :show] do
-      member do
+      collection do
         post 'confirm'
         get 'completion'
       end

@@ -1,4 +1,6 @@
 class Admin::OrdersController < ApplicationController
-  def show
-  end
+  
+   def top
+    @order = current_customer.orders
+   end
 end

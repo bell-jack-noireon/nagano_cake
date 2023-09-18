@@ -2,5 +2,5 @@ class Order < ApplicationRecord
    belongs_to :customer
    has_many :cart_items
 # enum注文ステータスの値
-   enum order_status: {入金待ち:0, 入金確認:1, 製作中:2, 発送準備中:3, 発送済:4}
+   enum order_status: { waiting_for_payment: 0, payment_confirmation: 1, in_production: 2, preparation_for_shipping: 3, sent: 4 }
 end

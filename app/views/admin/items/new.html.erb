@@ -3,22 +3,21 @@
 
 <h3>商品新規登録</h3>
 
-<%= form_with model: @item do |f| %>
+<%= form_with model: @item, ulr:admin_items_path, local: true do |f| %>
 <table>
  <tr>
   <td>商品画像</td>
-  <td>画像挿入</td>
-  <td>選択されていません</td>
+  <td><%= f.file_field :image, accept: "image/*" %></td>
  </tr>
 
  <tr>
   <td>商品名</td>
-  <td><%= f.text_field :name %></td>
+  <td><%= f.text_field :name, placeholder: "商品名" %></td>
   </tr>
 
   <tr>
    <td>商品説明</td>
-   <td><%= f.text_field :body %></td>
+   <td><%= f.text_area :body, placeholder: "ここに説明文を記述します" %></td>
   </tr>
 
   <tr>
@@ -28,8 +27,7 @@
 
   <tr>
    <td>税抜価格</td>
-   <td><%= f.text_field :price %></td>
-   <td>円</td>
+   <td><%= f.text_field :price, placeholder: "1000" %>円</td>
   </tr>
 
   <tr>
@@ -49,3 +47,4 @@
 </table>
  </div>
 </div>
+

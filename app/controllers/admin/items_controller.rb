@@ -1,4 +1,5 @@
 class Admin::ItemsController < ApplicationController
+
   def index
     @items = Item.all
   end
@@ -7,23 +8,35 @@ class Admin::ItemsController < ApplicationController
     @item = Item.new
   end
 
-  def show
-  end
-
-  def edit
-  end
-
   def create
     @item = Item.new(item_params)
     if @item.save
-      flash[:notice] = "保存されました！"
-    redirect_to admin_item_path(@item.id)
+    redirect_to admin_item_path(@item)
    else
      @item = Item.new
    render :new
    end
   end
 
-  def update
+  def show
+    @item = Item.find(params[:id])
   end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+
+  def update
+    @item = Item.find(parms[:id])
+    @item.update(item_params)
+    redirect_to admin_item_path(@item)
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name, :body, :genre_id, :price, :is_sale)
+  end
+
 end

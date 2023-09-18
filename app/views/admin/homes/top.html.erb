@@ -17,9 +17,9 @@
       <td><%= order.customer.last_name %><%= order.customer.first_name %></td>
       <td><%= order.order_details.sum(:amount) %></td>
       <td>
-        <%= form_with model: order, url: admin_order_path(order), method: :patch do |f| %>
-        <%= f.select :order_status, Order.order_statuses, class: "form-control" %>
-        <% end %>
+        <%= link_to admin_order_path(order.id) do %>
+          <%= order.status_i18n %>
+        <% end %>  
       </td>
     </tr>
   <% end %>

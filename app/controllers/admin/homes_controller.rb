@@ -1,5 +1,5 @@
 class Admin::HomesController < ApplicationController
   def top
-    @order = current_customer.orders
+    @orders = order.all
   end
 end

@@ -8,14 +8,4 @@ class Admin::OrderDetailsController < ApplicationController
     redirect_to admin_order_path(@order)
   end
 
-
-
-
-
-  private
-
-  def order_details_params
-    params.require(:order_detail).permit(:production_status)
-  end
-
 end

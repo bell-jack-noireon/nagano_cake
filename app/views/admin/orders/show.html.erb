@@ -41,26 +41,26 @@
 
   <tbody>
     <% @order_details.each do |order_detail| %>
-    
+
       <% @sum = 0 %>
       <% @sum += order_detail.item.tax_incluted_price %>
-    
+
       <%= form_with model: order_detail , url: admin_order_details_path(order_detail.id) , method: :patch , local: true do |f| %>
         <tr>
           <td><%= order_detail.item.name %></td>
           <td><%= order_detail.item.tax_incluted_price %></td>
           <td>
-            <%= f.select :manufacture_status, OrderDetail.manufacture_statuses_i18n %>
+            <%= f.select :production_status, OrderDetail.production_statuses_i18n %>
             <%= f.submit "更新", class: "btn btn-success" %>
           </td>
         </tr>
       <% end %>
-      
+
     <% end %>
   </tbody>
 </table>
 
-<table>  
+<table>
   <tr>
     <th>商品合計</th>
     <td><%= @sum %>円</td>

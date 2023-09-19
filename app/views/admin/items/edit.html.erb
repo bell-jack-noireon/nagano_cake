@@ -3,7 +3,7 @@
 
 <h3>商品編集</h3>
 
-<%= form_with model: @item, ulr:admin_item_path, local: true do |f| %>
+<%= form_with model: @item, url:admin_item_path, local: true, method: :patch do |f| %>
 <table>
  <tr>
   <td>商品画像</td>

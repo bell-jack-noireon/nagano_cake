@@ -8,9 +8,13 @@ class Admin::OrdersController < ApplicationController
   def update
     @order = Order.find(params[:id])
     @order_details = OrderDetail.where(order_id: params[:id])
-    redirect_to admin_order_detail_path(@order)
+    @order.update(order.params)
+    redirect_to admin_order_path(@order)
   end
   
   private
   
+   def order.params
+     params.require(:order).permit(:status)
+   end
 end

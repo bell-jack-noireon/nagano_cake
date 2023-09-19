@@ -49,6 +49,8 @@
         <tr>
           <td><%= order_detail.item.name %></td>
           <td><%= order_detail.item.tax_incluted_price %></td>
+          <td><%= order_detail.item.amount %></td>
+          <td><%= @sum %></td>
           <td>
             <%= f.select :production_status, OrderDetail.production_statuses_i18n %>
             <%= f.submit "更新", class: "btn btn-success" %>

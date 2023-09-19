@@ -3,22 +3,22 @@ ja:
     order:
     ########支払い方法の日本語化########
       payment_method:
-        Credit_card: "クレジットカード"
-        Bank_transfer: "銀行振込"
+        credit_card: "クレジットカード"
+        bank_transfer: "銀行振込"
       #####注文ステータスの日本語化#####
       status:
-        Waiting_for_payment: "入金待ち"
-        Payment_confirmation: "入金確認"
-        In_production: "製作中"
-        Preparation_for_shipping: "発送準備中"
+        waiting_for_payment: "入金待ち"
+        payment_confirmation: "入金確認"
+        in_production: "製作中"
+        preparation_for_shipping: "発送準備中"
         sent: "発送済み"
     #######製作ステータスの日本語化######
     order_details:
       production_status:
-        Unable_to_start: "着手不可"
-        Waiting_for_production: "製作待ち"
-        In_production,: "製作中"
-        Production_completed: "製作完了"
+        unable_to_start: "着手不可"
+        waiting_for_production: "製作待ち"
+        in_production,: "製作中"
+        production_completed: "製作完了"
 
   activerecord:
     errors:

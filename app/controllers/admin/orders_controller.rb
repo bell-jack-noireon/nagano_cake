@@ -6,8 +6,8 @@ class Admin::OrdersController < ApplicationController
   end
   
   def update
-    @oder = Order.find(params[:id])
-    @oder_details = OrderDetail.where(order_id: params[:id])
+    @order = Order.find(params[:id])
+    @order_details = OrderDetail.where(order_id: params[:id])
     redirect_to admin_order_detail_path(@order)
   end
   

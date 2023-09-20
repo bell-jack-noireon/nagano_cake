@@ -3,4 +3,14 @@ class OrderDetail < ApplicationRecord
   
   belongs_to :order
   belongs_to :item
+  
+  #数量ｘ税込価格で小計
+  def subtotal
+    amount * item.tax_incluted_price
+  end
+  
+    #商品合計金額
+  def billing_amount
+    order_details.sum { |order_detail| order_detail.subtotal }
+  end
 end

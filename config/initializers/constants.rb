@@ -1,0 +1,2 @@
+#送料
+SHIPPING_FEE = 800

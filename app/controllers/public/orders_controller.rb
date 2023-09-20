@@ -1,6 +1,8 @@
 class Public::OrdersController < ApplicationController
 
   def new
+    @order = Order.new
+    @address = Address.all
   end
 
   def confirm
@@ -16,6 +18,12 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit()
   end
 
 end

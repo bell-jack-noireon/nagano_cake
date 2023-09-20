@@ -10,7 +10,12 @@ class OrderDetail < ApplicationRecord
   end
   
     #商品合計金額
-  def billing_amount
+  def item_total_amount
     order_details.sum { |order_detail| order_detail.subtotal }
   end
+  
+  def billing_amount
+    item_total_amount + shipping_fee
+  end
+  
 end

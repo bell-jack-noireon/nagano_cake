@@ -48,7 +48,7 @@
       <%= form_with model: order_detail , url: admin_order_details_path(order_detail.id) , method: :patch , local: true do |f| %>
         <tr>
           <td><%= order_detail.item.name %></td>
-          <td><%= order_detail.item.tax_incluted_price %></td>
+          <td><%= order_detail.item.tax_incluted_price.to_s(:delimited) %></td>
           <td><%= order_detail.item.sum(:amount) %></td>
           <td><%= order_detail.item.subtotal %></td>
           <td>
@@ -62,14 +62,14 @@
 
   <tr>
     <th>商品合計</th>
-    <td><%= @order.billing_amount %>円</td>
+    <td><%= @order.item_total_amount.to_s(:delimited) %>円</td>
   </tr>
   <tr>
     <th>送料</th>
-    <td>800円</td>
+    <td><%= @order.shipping_fee.to_s(:delimited) %>円</td>
   </tr>
   <tr>
     <th>請求金額合計</th>
-    <td><strong><%= @sum + 800 %>円</strong></td>
+    <td><strong><%= @order.billing_amount.to_s(:delimited) %>円</strong></td>
   </tr>
 </table>

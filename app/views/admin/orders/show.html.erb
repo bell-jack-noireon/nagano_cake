@@ -50,7 +50,7 @@
           <td><%= order_detail.item.name %></td>
           <td><%= order_detail.item.tax_incluted_price.to_s(:delimited) %></td>
           <td><%= order_detail.item.sum(:amount) %></td>
-          <td><%= order_detail.item.subtotal %></td>
+          <td><%= order_detail.item.subtotal.to_s(:delimited) %></td>
           <td>
             <%= f.select :production_status, OrderDetail.production_statuses_i18n %>
             <%= f.submit "更新", class: "btn btn-success" %>

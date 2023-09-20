@@ -22,7 +22,7 @@
 
   <tr>
    <td>ジャンル</td>
-   <td><%= f.collection_select :genre_id, Genre.all, :id, :name %></td>
+   <td><%= f.collection_select :genre_id, @genres, :id, :name %></td>
   </tr>
 
   <tr>

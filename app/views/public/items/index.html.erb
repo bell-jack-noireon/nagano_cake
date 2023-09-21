@@ -22,10 +22,10 @@
         <% end %>
         <div class="card-body">
           <p class="item-details item-name card-text"><%= item.name %></p>
-          <p class="item-details card-text">¥<%= item.tax_included_price %></p>
+          <p class="item-details card-text">¥<%= item.tax_incluted_price.to_s(:delimited) %></p>
         </div>
       <% end %>
     </div>
-  <%= paginate @items, class:"text-center" %>
+  <%= paginate @items, class: "text-center" %>
   </div>
 </div>

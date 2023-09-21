@@ -2,16 +2,16 @@
 
 class Public::SessionsController < Devise::SessionsController
   before_action :customer_state, only: [:create]
-  
+
   def after_sign_up_path_for(resource)
       root_path
   end
-  
+
   def after_sign_out_path_for(resource)
       root_path
   end
   # before_action :configure_sign_in_params, only: [:create]
-  
+
   def customer_state
     @customer = Customer.find_by(email: params[:customer][:email])
     return if !@customer

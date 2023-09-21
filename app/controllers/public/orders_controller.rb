@@ -26,9 +26,9 @@ class Public::OrdersController < ApplicationController
     end
 
   　@cart_items = current_customer.cart_items.all
+  　@order_new = Order.new
 
   end
-
 
   def create
   end
@@ -37,6 +37,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = Order.all
   end
 
   def show
@@ -45,7 +46,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :post_cade, :address, :name)
+    params.require(:order).permit(:customer_id, :post_code, :address, :name, :shipping_fee, :billing_amount, :payment_method, :status)
   end
 
 end

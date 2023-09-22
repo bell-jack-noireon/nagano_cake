@@ -12,6 +12,14 @@
     </div>
   <div class="container">
     <div class="row">
+      <% if @item.errors.any? %>
+        <%= @item.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @item.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
      <%= image_tag item.get_item_image(500, 500), size: "150x150", class: "w-100 rounded" %>
     </div>
     <h3><strong><%= @item.name %></strong></h3>

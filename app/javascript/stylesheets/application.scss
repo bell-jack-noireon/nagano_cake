@@ -1,1 +1,15 @@
 @use '~bootstrap/scss/bootstrap';
+header, nav {
+  font-family: 'Kaushan', cursive, sans-serif;
+}
+.custom-footer-color {
+    background-color: #f0cc98;
+}
+
+.custom-body {
+    height: 750px;
+}
+
+.custom-header-color {
+    background-color: #fff2e1;
+}

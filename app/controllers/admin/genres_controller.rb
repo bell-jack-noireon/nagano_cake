@@ -22,8 +22,8 @@ class Admin::GenresController < ApplicationController
   end
 
   def update
-    @genle = Genre.find(params[:id])
-    if @genle.update(genre_params)
+    @genre = Genre.find(params[:id])
+    if @genre.update(genre_params)
       flash[:notice] = "変更が完了しました！"
       redirect_to admin_genres_path
     else

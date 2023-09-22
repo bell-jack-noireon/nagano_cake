@@ -25,9 +25,9 @@ class Public::OrdersController < ApplicationController
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
     end
-
-  　@cart_items = current_customer.cart_items.all
-  　@total = @cart_items.inject(0) { |sum, item| sum + item.tax_incluted_price }
+    @a = current_customer
+    @cart_items = @a.cart_items
+  　@total = @cart_items.inject(0) { |sum, item| sum + cart_items.item.tax_incluted_price }
   　@order_new = Order.new
 
   end

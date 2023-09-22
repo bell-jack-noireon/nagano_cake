@@ -37,7 +37,7 @@
           <% @sum = 0 %>
           <% @cart_items.each.with_index(1) do |cart_item, i| %>
             <tr>
-              <td class="align-middle" ><%= image_tag cart_item.get_item_image(500, 500), size: "50x50", class: "w-100 rounded" %><%= cart_item.item.name %></td>
+              <td class="align-middle" ><%= image_tag cart_item.item.get_item_image(500, 500), size: "50x50", class: "w-100 rounded" %><%= cart_item.item.name %></td>
               <td class="align-middle"><%= tax_incluted_price(cart_item.item.tax_incluted_price).to_s(:delimited) %></td>
               <td class="align-middle">
                 <%= form_with model: cart_item, local: true do |f| %>

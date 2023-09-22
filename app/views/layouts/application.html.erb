@@ -16,7 +16,7 @@
     <header class="custom-header-color">
       <nav class="navbar navbar-expand-lg py-2">
         <div class="container d-flex justify-content-between align-items-center">
-          
+
           <%= link_to root_path, class: "mx-0" do %>
             <%= image_tag "logo.png", alt: "LOGO", size: "100x100" %>
           <% end %>
@@ -25,7 +25,7 @@
               <p class="mx-2 text-secondary">ようこそ、<%= current_customer.last_name %> さん！</p>
             </div>
           <% end %>
-          
+
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav ml-auto">
               <% if admin_signed_in? %>
@@ -92,19 +92,19 @@
       </nav>
     </header>
     <span><%= notice %></span>
-    <div>
+    <div class="custom-body mt-5">
       <%= yield %>
     </div>
-    
+
     <footer class="pb-4 custom-footer-color">
       <div class="container pt-6 mt-5">
         <div class="row no-gutters justify-content-center">
-    
+
           <!-- ロゴの部分 -->
           <div class="col-auto text-center pt-3">
             <%= image_tag "logo.png", alt: "LOGO", size: "100x100" %>
           </div>
-    
+
           <!-- アイコンとコピーライトの部分 -->
           <div class="col-auto text-center pt-5">
             <h5>
@@ -117,7 +117,7 @@
             </h5>
             <p>©CopyRight Nagano-cake.inc</p>
           </div>
-    
+
         </div>
       </div>
     </footer>

@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/a8dbaf925a.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP" rel="stylesheet">
   </head>
 
   <body>
@@ -22,7 +22,7 @@
           <% end %>
           <% if customer_signed_in? %>
             <div class="d-flex align-items-center justify-content-center" style="flex: 1;">
-              <p class="mx-2 text-secondary">ようこそ、<%= current_customer.last_name %> さん！</p>
+              <p class="mx-2 text-secondary p-centered">ようこそ、<%= current_customer.last_name %> さん！</p>
             </div>
           <% end %>
 

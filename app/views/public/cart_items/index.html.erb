@@ -1,5 +1,15 @@
 <div class="container">
   <div class="row">
+    <% if @cart_item_check.errors.any? %>
+    <ul class="alert alert-danger" role="alert">
+      <h6 class="alert-heading">
+        <%= @cart_item_check.errors.count %>件のエラーが発生しました
+      </h6>
+      <% @cart_item_check.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
       <h2>ショッピングカート</h2>
     <% unless @cart_items.empty? %>
       <%= link_to "カートを空にする", destroy_all_cart_items_path, class: "btn btn-danger float-right", id: "destroy_all", method: :delete, data: { confirm: 'カート内の商品を全て削除しますか？' } %>
@@ -27,7 +37,7 @@
           <% @sum = 0 %>
           <% @cart_items.each.with_index(1) do |cart_item, i| %>
             <tr>
-              <td class="align-middle" ><%= image_tag item.get_item_image(500, 500), size: "150x150", class: "w-100 rounded" %></td>
+              <td class="align-middle" ><%= image_tag item.get_item_image(500, 500), size: "50x50", class: "w-100 rounded" %></td>
               <td class="align-middle"><%= tax_incluted_price(cart_item.item.tax_incluted_price).to_s(:delimited) %></td>
               <td class="align-middle">
                 <%= form_with model: cart_item, local: true do |f| %>

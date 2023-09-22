@@ -15,10 +15,9 @@ class Public::CartItemsController < ApplicationController
     else
       @cart_item = CartItem.new(cart_item_params)
       @cart_item.customer_id = current_customer.id
-      if @cart_item.save
-        flash[:notice] = "カートに商品を追加しました"
-        redirect_to cart_items_path
-      end
+      @cart_item.save
+      flash[:notice] = "カートに商品を追加しました"
+      redirect_to cart_items_path
     end
   end
 

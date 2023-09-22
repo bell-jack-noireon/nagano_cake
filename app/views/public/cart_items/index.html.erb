@@ -30,14 +30,14 @@
             <th class="table-active" style="width:15%">単価(税込)</th>
             <th class="table-active" style="width:15%">数量</th>
             <th class="table-active" style="width:15%">小計</th>
-            <th class="table-active" style="width:15%"></th>
+            <th class="table-active" style="width:15%"><br></th>
           </tr>
         </thead>
         <tbody>
           <% @sum = 0 %>
           <% @cart_items.each.with_index(1) do |cart_item, i| %>
             <tr>
-              <td class="align-middle" ><%= image_tag item.get_item_image(500, 500), size: "50x50", class: "w-100 rounded" %></td>
+              <td class="align-middle" ><%= image_tag cart_item.get_item_image(500, 500), size: "50x50", class: "w-100 rounded" %><%= cart_item.item.name %></td>
               <td class="align-middle"><%= tax_incluted_price(cart_item.item.tax_incluted_price).to_s(:delimited) %></td>
               <td class="align-middle">
                 <%= form_with model: cart_item, local: true do |f| %>
@@ -56,7 +56,7 @@
     <div class="row">
         <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
         <table class="table table-bordered">
-          <tr><th class="table-active" style="width:50%">合計金額</td><td style="width:50%"><%= @sum.to_s(:delimited) %></td></tr>
+          <tr><th class="table-active" style="width:50%">合計金額</th><td style="width:50%"><%= @sum.to_s(:delimited) %></td></tr>
         </table>
     </div>
     <div class="row">

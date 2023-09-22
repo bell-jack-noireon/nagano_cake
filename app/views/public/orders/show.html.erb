@@ -61,11 +61,14 @@
           <td>個数</td>
           <td>小計</td>
         </tr>
+        <%= @order.each do |order| %>
         <tr>
-          <td><%= @order.cart.item.name %></td>
-          <td><%= @order.cart.item.tax_incluted_price %></td>
-          <td><%= @order.cart.item.tax_incluted_price*cart.amount %></td>
+          <td><%= order.cart.item.name %></td>
+          <td><%= order.cart.item.tax_incluted_price %></td>
+          <td><%= order.cart.amount %></td>
+          <td><%= order.cart.item.tax_incluted_price*cart.amount %></td>
         </tr>
+        <% end %>
       </table>
     </div>
   </div>

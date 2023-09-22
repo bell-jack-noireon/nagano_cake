@@ -26,6 +26,7 @@ class Public::OrdersController < ApplicationController
     end
 
   　@cart_items = current_customer.cart_items.all
+  　@total = @cart_items.inject(0) { |sum, item| sum + item.tax_incluted_price }
   　@order_new = Order.new
 
   end
@@ -53,7 +54,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all
+    @orders = current_user.orders
   end
 
   def show

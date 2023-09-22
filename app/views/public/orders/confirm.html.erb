@@ -32,10 +32,11 @@
             </tr>
             <tr>
               <td>商品合計</td>
-              <td></td>
+              <td><%= @tatal.to_s(:delimited)</td>
             </tr>
             <tr>
               <td>請求金額</td>
+              <td><%= @tatal+800.to_s(:deliited) %></td>
             </tr>
           </table>
         </div>
@@ -69,7 +70,7 @@
           <%= f.hidden_field :address, value: @order.address %>
           <%= f.hidden_field :name, value: @order.name %>
           <%= f.hidden_field :shipping_fee, value: 800 %>
-          <%= f.hidden_field :billing_amount, value: 請求金額 %>
+          <%= f.hidden_field :billing_amount, value: @tatal+800.to_s(:deliited %>
           <%= f.hidden_field :payment_method, value: @order.payment_method %>
           <%= f.hidden_field :status, value: "waiting_for_payment" %>
           <%= f.submit"注文を確定する", class: "btn btn-success" %>

@@ -25,7 +25,7 @@
            <div><%= order_detail.item.name %></div>
            <% end %>
          </td>
-         <td><%= order.billing_amount %></td>
+         <td><%= order.billing_amount.to_s(:delimited) %></td>
          <td><%= order.status_i18n %></td>
          <td><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></td>
        </tr>

@@ -13,12 +13,13 @@
       <td><%= f.text_field :name, class: "form-control" %></td>
     </tr>
     <tr>
-      <td></td>
+      <td>
       <% if current_page?(addresses_path) %>
         <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
       <% else %>
         <td><%= f.submit "変更内容を保存", class: "btn btn-success" %></td>
       <% end %>
+      </td>
     </tr>
   </table>
 <% end %>

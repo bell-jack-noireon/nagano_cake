@@ -6,8 +6,8 @@
           <h6 class="alert-heading">
             <%= @order.errors.count %>件のエラーが発生しました
           </h6>
-           <% @order.errors.hull_messages.each do |message| %>
-           <li><%= massage %></li>
+           <% @order.errors.full_messages.each do |message| %>
+           <li><%= message %></li>
            <% end %>
         </ul>
       <% end %>
@@ -24,9 +24,9 @@
             <td>数量</td>
             <td>小計</td>
           </tr>
-          <%= @cart_items.each do |cart| %>
+          <% @cart_items.each do |cart| %>
           <tr>
-            <td><%= cart.item.item_image(20,20) %><strong><%= cart.item.name %></strong></td>
+            <td><%= image_tag cart.item.get_item_image(20,20) %><strong><%= cart.item.name %></strong></td>
             <td><%= cart.item.tax_incluted_price %></td>
             <td><%= cart.amount %></td>
             <td><%= cart.item.tax_incluted_price*cart.amount %></td>
@@ -42,11 +42,11 @@
             </tr>
             <tr>
               <td>商品合計</td>
-              <td><%= @tatal.to_s(:delimited) %></td>
+              <td><%= @total.to_s(:delimited) %></td>
             </tr>
             <tr>
               <td>請求金額</td>
-              <td><%= @tatal+800.to_s(:deliited) %></td>
+              <td><%= (@billing_amount = @total + 800).to_s(:delimited) %></td>
             </tr>
           </table>
         </div>
@@ -73,16 +73,16 @@
 
     <div class="row">
       <div class="col-2 mt-3 text-center">
-        <%= from_with model: @order_new, url: orders_path, local: true, method:post do |f| %>
+        <%= form_with model: @order_new, url: orders_path, local: true, method: :post do |f| %>
           <%= f.hidden_field :customer_id, value: current_customer.id %>
           <%= f.hidden_field :post_code, value: @order.post_code %>
           <%= f.hidden_field :address, value: @order.address %>
           <%= f.hidden_field :name, value: @order.name %>
           <%= f.hidden_field :shipping_fee, value: 800 %>
-          <%= f.hidden_field :billing_amount, value: @tatal+800.to_s(:deliited %>
+          <%= f.hidden_field :billing_amount, value: @billing_amount %>
           <%= f.hidden_field :payment_method, value: @order.payment_method %>
           <%= f.hidden_field :status, value: "waiting_for_payment" %>
-          <%= f.submit"注文を確定する", class: "btn btn-success" %>
+          <%= f.submit "注文を確定する", class: "btn btn-success" %>
         <% end %>
       </div>
     </div>

@@ -20,33 +20,31 @@ class Public::OrdersController < ApplicationController
       @order.address = @address.address
       @order.name = @address.name
 
-    else params[:order][:address_id] == "2"
+    elsif params[:order][:address_id] == "2"
       @order.post_code = params[:order][:post_code]
       @order.address = params[:order][:address]
       @order.name = params[:order][:name]
     end
-    @a = current_customer
-    @cart_items = @a.cart_items
-  　@total = @cart_items.inject(0) { |sum, item| sum + cart_items.item.tax_incluted_price }
-  　@order_new = Order.new
+    @cart_items = current_customer.cart_items.all
+    @total = @cart_items.inject(0) { |sum, cart_item| sum + cart_item.item.tax_incluted_price*cart_item.amount }
+    @order_new = Order.new
 
   end
 
   def create
-    order_new = current_customer.order.new(order_params)
+    order_new = current_customer.orders.new(order_params)
     order_new.save
     @cart_items = current_customer.cart_items.all
     @cart_items.each do |cart_item|
-     @order_details = OrderDetails.new
-     @order_details.order_id = order.id
+     @order_details = OrderDetail.new
+     @order_details.order_id = order_new.id
      @order_details.item_id = cart_item.item.id
-     @order_details.tax_inclede_price = cart_item.item.tax_included_price
+     @order_details.tax_included_price = cart_item.item.tax_incluted_price
      @order_details.amount = cart_item.amount
-     @oeder_details.production_status = 0
      @order_details.save
     end
 
-    CartItems.destroy_all
+    current_customer.cart_items.destroy_all
     redirect_to completion_orders_path
 
   end
@@ -59,7 +57,13 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    if params[:id] == "confirm"
+      flash[:notice] = "画面遷移が行われました"
+      redirect_to new_order_path
+    else
+     @order = Order.find(params[:id])
+    end
+
   end
 
   private

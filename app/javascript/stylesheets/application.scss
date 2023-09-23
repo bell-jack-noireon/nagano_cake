@@ -7,7 +7,7 @@ header, nav, body {
 }
 
 .custom-body {
-    height: 900px;
+    height: 1100px;
 }
 
 .custom-header-color {
@@ -17,4 +17,9 @@ header, nav, body {
 .p-centered {
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.box {
+    background-color: rgba(211,211,211,0.5);
+    width: 500px;
 }

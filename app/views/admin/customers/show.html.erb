@@ -16,7 +16,7 @@
       </tr>
       <tr>
         <td>郵便番号</td>
-        <td><%= @customer.post_code %></td>
+        <td>〒<%= @customer.post_code %></td>
       </tr>
       <tr>
         <td>住所</td>
@@ -33,7 +33,7 @@
       <tr>
         <td>会員ステータス</td>
         <td><% if @customer.is_deleted %>
-              退会
+              退会済
             <% else %>
               有効
              <% end %>

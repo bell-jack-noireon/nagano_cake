@@ -5,7 +5,10 @@
       <%= render 'top_image' %>
       <h3 class="font-weight-bold d-inline headline">新着商品</h3>
       <%= render 'public/items/item_image', items: @items %>
-      <%= link_to "全ての商品を見る >", items_path, class:"link-product-all"%>
+      <div class="right">
+        <%= link_to "全ての商品を見る >", items_path %>
+      </div>
     </div>
   </div>
 </div>
+

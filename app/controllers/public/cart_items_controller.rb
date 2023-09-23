@@ -9,9 +9,14 @@ class Public::CartItemsController < ApplicationController
     @cart_item_check = CartItem.find_by(customer_id: current_customer.id, item_id: params[:cart_item][:item_id])
     if @cart_item_check
       @cart_item_check.amount += params[:cart_item][:amount].to_i
-      @cart_item_check.save
-      flash[:notice] = "カートに商品を追加しました"
-      redirect_to cart_items_path
+      if @cart_item_check.amount < 11
+         @cart_item_check.save
+         flash[:notice] = "カートに商品を追加しました"
+         redirect_to cart_items_path
+      else
+         flash[:notice] = "カートの上限数を超えています"
+         redirect_back(fallback_location: root_path)
+      end
     else
       @cart_item = CartItem.new(cart_item_params)
       @cart_item.customer_id = current_customer.id

@@ -31,7 +31,7 @@
           <p>
             <%= form_with model: @cart_item, local: true do |f| %>
               <%= f.hidden_field :item_id, value: @item.id %>
-              <%= f.number_field :amount, in: 1..99, placeholder: "個数を選択" %>
+              <%= f.select :amount, *[1..10] %>
               <%= f.submit "カートに入れる", class: "btn btn-success" %>
             <% end %>
           </p>
@@ -39,7 +39,7 @@
           <%= link_to "ログインはこちらから", new_customer_session_path %>
         <% end %>
       <% else %>
-        <h3 class="text-danger">売り切れ</h3>
+        <h3 class="text-danger">販売停止中</h3>
       <% end %>
     </div>
   </div>

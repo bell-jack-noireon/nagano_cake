@@ -1,8 +1,8 @@
 <div class="container">
-<h3>会員一覧</h3>
+<h3 class="back pb-2">会員一覧</h3>
   <div class="row">
     <table class="table table_bordered">
-      <thead>
+      <thead class="bg-light">
         <tr>
           <th>会員ID</th>
           <th>氏名</th>
@@ -18,9 +18,9 @@
             <td><%= customer.email %></td>
             <td>
               <% if customer.is_deleted %>
-                退会済
+                <p class="text-secondary">退会済</p>
               <% else %>
-                有効
+                <P class="text-success">有効</P>
               <% end %>
             </td>
           </tr>

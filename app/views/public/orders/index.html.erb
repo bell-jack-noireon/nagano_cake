@@ -1,33 +1,39 @@
 <div class="container-field">
   <div class="row">
     <div class="col-2 offset-1">
-      <h4 class="bg-light text-center">注文履歴一覧</h4>
+      <h4 class="back text-center pl-5 pr-5">注文履歴一覧</h4>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-12 mx-5 mt-3">
+    <div class="col-10 mx-5 mt-3">
       <table class="table table-bordered">
-        <tr>
-          <td class="col-2">注文日</td>
-          <td class="col-5">配送先</td>
-          <td class="col-2">注文商品</td>
-          <td class="col-1">支払金額</td>
-          <td class="col-1">ステータス</td>
-          <td class="col-1">注文詳細</td>
-        </tr>
+        <thead class="bg-light">
+          <tr>
+            <th class="col-2">注文日</td>
+            <th class="col-5">配送先</td>
+            <th class="col-2">注文商品</td>
+            <th class="col-1">支払金額</td>
+            <th class="col-1">ステータス</td>
+            <th class="col-1">注文詳細</td>
+          </tr>
+        </thead>
        <% @orders.each do |order| %>
        <tr>
          <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
-         <td><%= order.address %></td>
+         <td>
+           <div>〒<%= order.post_code %></div>
+           <div><%= order.address %></div>
+           <div><%= order.name %></div>
+         </td>
          <td>
            <% order.order_details.each do |order_detail| %>
            <div><%= order_detail.item.name %></div>
            <% end %>
          </td>
-         <td><%= order.billing_amount %></td>
+         <td><%= order.billing_amount.to_s(:delimited) %>円</td>
          <td><%= order.status_i18n %></td>
-         <td><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></td>
+         <td class="pl-4"><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></td>
        </tr>
        <% end %>
       </table>

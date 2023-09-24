@@ -32,20 +32,26 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-    order_new = current_customer.orders.new(order_params)
-    order_new.save
-    @cart_items = current_customer.cart_items.all
-    @cart_items.each do |cart_item|
-     @order_details = OrderDetail.new
-     @order_details.order_id = order_new.id
-     @order_details.item_id = cart_item.item.id
-     @order_details.tax_included_price = cart_item.item.tax_incluted_price
-     @order_details.amount = cart_item.amount
-     @order_details.save
-    end
-
+    @order_new = current_customer.orders.new(order_params)
+    if @order_new.save
+      @cart_items = current_customer.cart_items.all
+      @cart_items.each do |cart_item|
+      @order_details = OrderDetail.new
+      @order_details.order_id = @order_new.id
+      @order_details.item_id = cart_item.item.id
+      @order_details.tax_included_price = cart_item.item.tax_incluted_price
+      @order_details.amount = cart_item.amount
+      @order_details.save
+     end
     current_customer.cart_items.destroy_all
     redirect_to completion_orders_path
+
+    else
+     @order = Order.new
+     @address = current_customer.addresses.all
+     flash[:alert] = "お届け先の入力内容に不備があります。"
+     render :new
+    end
 
   end
 

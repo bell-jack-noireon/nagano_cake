@@ -1,14 +1,18 @@
-<div class="col-md-8 offset-md-1">
-  <% if @address.errors.any? %>
-    <ul class="alert alert-danger" role="alert">
-      <h6 class="alert-heading">
-        <%= @address.errors.count %>件のエラーが発生しました
-      </h6>
-      <% @address.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <% if @address.errors.any? %>
+        <ul class="alert alert-danger" role="alert">
+          <h6 class="alert-heading">
+            <%= @address.errors.count %>件のエラーが発生しました
+          </h6>
+          <% @address.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
       <% end %>
-    </ul>
-  <% end %>
-  <h4 class="my-3 ml-4">配送先編集</h4>
-  <%= render "form", address: @address %>
+      <h4 class="my-3 ml-4">配送先編集</h4>
+      <%= render "form", address: @address %>
+    </div>
+  </div>
 </div>

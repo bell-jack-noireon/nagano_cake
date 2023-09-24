@@ -1,17 +1,7 @@
 <div class="container">
-  <div class="row">
-    <div class="col-lg-2 mt-4 p-0">
-      <div class="card headline">
-        <h6 class="card-header text-center">ジャンル</h6>
-        <% @genres.each do |genre| %>
-          <li class="list-group-item border-0">
-            <%= genre.name %>
-          </li>
-        <% end %>
-      </div>
-    </div>
-  <div class="container">
-    <div class="row">
+  <div class="row mx-auto">
+    <%= render 'public/homes/genre', genres: @genres %>
+    <div class="col-lg-5 mt-4 pl-5 text-center">
       <% if @item.errors.any? %>
         <%= @item.errors.count %>件のエラーが発生しました
         <ul>
@@ -20,15 +10,16 @@
           <% end %>
         </ul>
       <% end %>
-     <%= image_tag @item.get_item_image(500, 500), size: "150x150", class: "w-100 rounded" %>
+      <%= image_tag @item.get_item_image(500, 500), size: "350x250", class: "rounded" %>
     </div>
-    <h3><strong><%= @item.name %></strong></h3>
-    <h4><%= simple_format(@item.body)%></h4>
+    <div class="col-lg-5 mt-4 pl-4">
+      <h3><strong><%= @item.name %></strong></h3>
+      <h4><%= simple_format(@item.body)%></h4>
       <% if @item.is_sale == true %>
         <p class="text-success">販売中</p>
         <h3>¥ <%= @item.tax_incluted_price %> <small>(税込)</small></h3>
         <% if current_customer %>
-          <p>
+          <p class="mt-5">
             <%= form_with model: @cart_item, local: true do |f| %>
               <%= f.hidden_field :item_id, value: @item.id %>
               <%= f.select :amount, *[1..10] %>

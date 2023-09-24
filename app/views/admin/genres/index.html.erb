@@ -12,13 +12,13 @@
             <% end %>
           </ul>
         <% end %>
-        <h4>ジャンル一覧・追加</h4>
+        <h4><span style="background-color: #f5f5f5;">ジャンル一覧・追加</span></h4>
       </div>
       <div class="mb-5">
         <%= form_with model: @genre, url: admin_genres_path do |f| %>
           <div class="mr-5 d-inline-block">ジャンル名</div>
           <div class="mr-5 d-inline-block"><%= f.text_field :name, placeholder: "ジャンル名" %></div>
-          <%= f.submit "新規登録" %>
+          <%= f.submit "新規登録", class:"btn btn-success" %>
         <% end %>
       </div>
     </div>
@@ -26,7 +26,7 @@
   <div class="row">
     <div class="col-md-4">
       <table class="table">
-        <thead>
+        <thead style="background-color: #f5f5f5;">
           <tr>
             <th class="text-center">ジャンル</th>
             <th></th>

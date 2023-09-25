@@ -6,7 +6,7 @@ class Admin::OrdersController < ApplicationController
     @order_details = OrderDetail.where(order_id: params[:id])
   end
 
-  def update 
+  def update
     @order = Order.find(params[:id])
     @order_details = @order.order_details
     if @order.update(order_params)

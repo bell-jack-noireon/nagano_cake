@@ -4,7 +4,11 @@
     <div class="col-lg-10">
       <div class="container">
         <div class="row">
-          <h2>商品一覧(全<%= @items_all.count %>件)</h2>
+          <% if params[:genre_id] %>
+          <h2><%= @genre.name %> 一覧 (全 <%= @items_all.count %> 件)</h2>
+          <% else %>
+          <h2>商品一覧 (全 <%= @items_all.count %> 件)</h2>
+          <% end %>
         </div>
       </div>
       <%= render 'public/items/item_image', items: @items %>

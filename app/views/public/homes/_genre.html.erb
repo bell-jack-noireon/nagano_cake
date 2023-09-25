@@ -3,7 +3,7 @@
     <h6 class="card-header text-center ">ジャンル</h6>
     <% genres.each do |genre| %>
       <li class="list-group-item border-0">
-        <%= genre.name %>
+        <%= link_to genre.name, items_path(genre_id: genre.id) %>
       </li>
     <% end %>
   </div>

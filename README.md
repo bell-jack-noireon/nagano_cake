@@ -2,7 +2,7 @@
 
 **-ながのCAKE-**
 
-## 概要
+## テーマ
 
  長野県にある小さな洋菓子店「ながのCAKE」の商品を通販するためのECサイトになります。
 
@@ -27,22 +27,27 @@ $ rails s
 パスワード: 111111<br>
 
 ## 使用言語
-- HTML & SCSS
+- HTML
+- CSS
 - Ruby
 - JavaScript
 
 **フレームワーク**
 - Ruby on Rails
 
-## 機能一覧
+## 機能概要
+顧客側の機能
+ 
 
+管理者側の機能
+ 
 
 ## gem一覧
 
 | gem | 目的 |
 ----  | ----
 |devise| ユーザー認証機能の実装 |
-|enum_help| enumの値を日本語化する |
+|enum_help| 日本語化機能の実装 |
 |kaminari| ページネーションの実装 |
 |bootstrap| レイアウト機能の実装 |
 |font-awesome| アイコンの取得 |

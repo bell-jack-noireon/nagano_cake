@@ -32,15 +32,15 @@
             <%= current_customer.last_name %><%= current_customer.first_name %>
           </div>
           <p class="mt-3"><%= f.radio_button :address_id, 1 %><%= f.label :address_id_1, "登録済住所から選択" %></p>
-          <p class="mr-1"><%= f.select :address, options_from_collection_for_select(@address, :id, :address_display) %></p>
-          
+          <p class="mr-1"><%= f.select :address_select, options_from_collection_for_select(@address, :id, :address_display) %></p>
+
           <p><%= f.radio_button :address_id, 2 %><%= f.label :address_id_2, "新しいお届け先" %></p>
           <p>郵便番号(ハイフンなし)<%= f.text_field :post_code, placeholder: "0000000" %></p>
           <p><span class="margin-right-137">住所</span><%= f.text_field :address, placeholder: "東京都渋谷区代々木町0-0" %></p>
           <p><span class="margin-right-137">宛名</span><%= f.text_field :name, placeholder: "令和道子" %></p>
         </div>
       </div>
-      
+
       <div class="row">
         <div class="col-1 offset-5">
          <%= f.submit '確認画面へ進む', class: "btn btn-primary" %>

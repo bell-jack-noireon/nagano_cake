@@ -48,7 +48,7 @@ $ rails s
 |font-awesome| アイコンの取得 |
 
 ## ER図
-![ER図](ER.jpg)
+![ER図](ER図.jpg)
 
 ## 動作環境
 - Ruby ver_3.1.2

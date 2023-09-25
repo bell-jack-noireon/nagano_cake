@@ -17,7 +17,7 @@
       <h4><%= simple_format(@item.body)%></h4>
       <% if @item.is_sale == true %>
         <p class="text-success">販売中</p>
-        <h3>¥ <%= @item.tax_incluted_price %> <small>(税込)</small></h3>
+        <h3>¥ <%= @item.tax_incluted_price.to_s(:delimited) %> <small>(税込)</small></h3>
         <% if current_customer %>
           <p class="mt-5">
             <%= form_with model: @cart_item, local: true do |f| %>

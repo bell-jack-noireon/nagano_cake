@@ -7,7 +7,7 @@ header, nav, body {
 }
 
 .custom-body {
-    height: 1100px;
+    height: 1500px;
 }
 
 .custom-header-color {
@@ -50,4 +50,12 @@ a {
 }
 .margin-left {
     margin-left: 200px;
+}
+
+.custom-pagination .page,
+.custom-pagination .prev,
+.custom-pagination .last,
+.custom-pagination .next,
+.custom-pagination .first {
+    margin: 0px 10px;
 }

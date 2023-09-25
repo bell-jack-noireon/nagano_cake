@@ -59,7 +59,8 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_customer.orders
+    @orders_all = current_customer.orders.order(created_at: :desc)
+    @orders = @orders_all.page(params[:page])
   end
 
   def show

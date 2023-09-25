@@ -47,6 +47,9 @@ $ rails s
 |bootstrap| レイアウト機能の実装 |
 |font-awesome| アイコンの取得 |
 
+## ER図
+![ER図](ER.jpg)
+
 ## 動作環境
 - Ruby ver_3.1.2
 - Rails ver_6.1.7.4

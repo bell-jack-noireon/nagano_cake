@@ -69,6 +69,7 @@ class Public::OrdersController < ApplicationController
       redirect_to new_order_path
     else
      @order = Order.find(params[:id])
+     @item_total = @order.billing_amount - 800
     end
 
   end

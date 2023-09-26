@@ -1,0 +1,65 @@
+@use '~bootstrap/scss/bootstrap';
+header, nav, body {
+  font-family: 'Noto Serif JP', sans-serif;
+}
+.custom-footer-color {
+    background-color: #f0cc98;
+}
+
+.custom-body {
+    height: 1500px;
+}
+
+.custom-header-color {
+    background-color: #fff2e1;
+}
+
+.p-centered {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.box {
+    background-color: rgba(211,211,211,0.5);
+    width: 500px;
+}
+.right {
+    text-align: right;
+}
+
+a {
+    color: rgba(210,133,63,);
+}
+
+.back {
+    background-color: #fff2e1;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px; 
+}
+
+.margin-right {
+    margin-right: 20px;
+}
+.address-input {
+    width: 80%;
+}
+
+.margin-right-137 {
+    margin-right: 137px;
+}
+.margin-left {
+    margin-left: 200px;
+}
+
+.custom-pagination .page,
+.custom-pagination .prev,
+.custom-pagination .last,
+.custom-pagination .next,
+.custom-pagination .first {
+    margin: 0px 10px;
+}
+
+.flash {
+    margin-left: 400px;
+}

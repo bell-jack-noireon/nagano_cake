@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <%= render 'genre', genres: @genres %>
+    <div class="col-lg-10">
+      <%= render 'top_image' %>
+      <h3 class="pt-4 pl-4">新着商品</h3>
+      <%= render 'public/items/item_image', items: @items %>
+      <div class="right">
+        <%= link_to "全ての商品を見る >", items_path %>
+      </div>
+    </div>
+  </div>
+</div>
+

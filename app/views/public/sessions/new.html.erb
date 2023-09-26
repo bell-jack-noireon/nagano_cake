@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-8 mx-auto">
       <h2 class="mt-8 mb-3">ログイン</h2>
-      <h5 class="back">会員の方はこちらからログイン</h5>
+      <h5 class="back"><strong>会員の方はこちらからログイン</strong></h5>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <table class="table table-borderless">
           <tr>
@@ -19,7 +19,7 @@
           </tr>
         </table>
       <% end %>
-      <h5 class="back">会員登録がお済でない方</h5>
+      <h5 class="back"><strong>会員登録がお済でない方</strong></h5>
       <div class="d-flex align-items-center">
         <span><%= render "public/shared/links" %></span>
         <span> から新規登録を行ってください。</span>

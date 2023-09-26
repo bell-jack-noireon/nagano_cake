@@ -1,21 +1,21 @@
 <div class="container-field">
   <div class="row">
     <div class="col-3 offset-2">
-      <h4 class="back pl-5 pr-5">注文履歴一覧</h4>
+      <h4 class="back pl-5 pr-5"><strong>注文履歴一覧</strong></h4>
     </div>
   </div>
 
   <div class="row">
-    <div class="col-md-10 mx-auto mt-3">
+    <div class="col-md-11 mx-auto mt-3">
       <table class="table table-bordered">
         <thead class="bg-light">
           <tr>
-            <th class="col-1">注文日</td>
-            <th class="col-4">配送先</td>
-            <th class="col-2">注文商品</td>
-            <th class="col-1">支払金額</td>
-            <th class="col-1">ステータス</td>
-            <th class="col-2">注文詳細</td>
+            <th style="width:10%">注文日</td>
+            <th style="width:30%">配送先</td>
+            <th style="width:20%">注文商品</td>
+            <th style="width:10%">支払金額</td>
+            <th style="width:10%">ステータス</td>
+            <th style="width:12%">注文詳細</td>
           </tr>
         </thead>
        <% @orders.each do |order| %>

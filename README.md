@@ -8,8 +8,6 @@
 
 ## アプリケーション使用方法
 ```
-$ git clone git@github.com:bell-jack-noireon/nagano_cake.git
-$ cd nagano_cake
 $ bundle install
 $ rails db:migrate
 $ rails db:seed
